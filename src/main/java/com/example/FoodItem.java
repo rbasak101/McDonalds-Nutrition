@@ -59,32 +59,4 @@ public class FoodItem {
         System.out.println(" ");
     }
 
-    public static void main(String[] args) {
-//        String json = "{\"CAL\":\"740\",\"FAT\":\"41\",\"SFAT\":\"16\",\"TFAT\":\"1.5\",\"CHOL\":\"125\",\"SALT\":\"1480\",\"CARB\":\"51\",\"FBR\":\"4\",\"SGR\":\"14\",\"PRO\":\"40\",\"ITEM\":\"Bacon Clubhouse Burger 9.7 oz (274 g)\",\"CATEGORY\":\"BURGERSANDWICH\"}";
-//        Gson gson = new Gson();
-//        FoodItem food = gson.fromJson(json, FoodItem.class);
-//        food.printNutrition();
-
-        String filePath = "/Users/Rbasak101/desktop/McD.json";
-        try
-        {
-            //Create a new Gson object
-            Gson gson = new Gson();
-
-            //Read the employee.json file
-            BufferedReader br = new BufferedReader(
-                    new FileReader(filePath));
-
-            //convert the json to  Java object (FoodItem)
-            FoodItem[] food = gson.fromJson(br, FoodItem[].class);
-            for(int i = 0; i < food.length; i++) {
-                food[i].printNutrition();
-            }
-            System.out.println(food.length); // 471 as expected
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 }
