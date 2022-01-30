@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class AnalysisTest {
     private String filePath = "/Users/Rbasak101/desktop/McD.json";
@@ -43,4 +44,29 @@ public class AnalysisTest {
         System.out.println(map2);
 
     }
+
+    @Test
+    public void getAverageCalories() {
+        Analysis analyze = new Analysis();
+        double average = analyze.getAverageCalories(foodList);
+        System.out.println("Average Calories: " + average);
+    }
+
+    @Test
+    public void sortCalories() {
+        Analysis analyze = new Analysis();
+        ArrayList<FoodItem> sorted = analyze.sortCalories(foodList);
+        for(int i = 0; i < sorted.size(); i++) {
+            sorted.get(i).printNutrition();
+        }
+    }
+
+    @Test
+    public void sodiumRange() {
+        Analysis analyze = new Analysis();
+        HashMap<String, List<Integer>> range = analyze.sodiumRangeCategory(foodList);
+        System.out.println(range);
+    }
+
+
 }

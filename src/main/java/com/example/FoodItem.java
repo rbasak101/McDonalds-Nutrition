@@ -2,7 +2,7 @@ package com.example;
 import com.google.gson.Gson;
 import java.io.*;
 
-public class FoodItem {
+public class FoodItem implements Comparable<FoodItem> {
     private String CAL; //
     private String FAT; //
     private String SFAT;
@@ -57,6 +57,20 @@ public class FoodItem {
         System.out.println("Sugar: " + this.getSugar());
         System.out.println("Salt: " + this.getSalt());
         System.out.println(" ");
+    }
+
+    @Override
+    public int compareTo(FoodItem other) {
+
+        Double calorieDouble = Double.parseDouble(((FoodItem) other).getCalories());
+        int compareCalorieInt = calorieDouble.intValue();
+        //ascending order
+        int current = Integer.parseInt(this.CAL);
+        return current - compareCalorieInt;
+
+        //descending order
+        //return compareCalorieInt - current;
+
     }
 
 }
