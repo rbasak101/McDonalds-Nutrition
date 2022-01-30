@@ -40,7 +40,7 @@ public class Analysis {
             Double value = entry.getValue();
             category.put(key, (value / total) * 100);
         }
-        System.out.println(total);
+       // System.out.println(total);
         return category;
     }
 
@@ -57,7 +57,7 @@ public class Analysis {
         return average;
     }
 
-    public ArrayList<FoodItem> sortCalories(ArrayList<FoodItem> menu) { // Reverse Order
+    public ArrayList<FoodItem> sortCalories(ArrayList<FoodItem> menu) { // Descending Order
         Collections.sort(menu, Collections.reverseOrder());
         return menu;
     }
@@ -76,18 +76,18 @@ public class Analysis {
             Integer s = Integer.valueOf(menu.get(i).getSalt());
             List<Integer> saltRange = map.get(c);
             Integer [] range = {saltRange.get(0), saltRange.get(1)};
+
             if(s <= saltRange.get(0)) {
                 range[0] = s;
                 //Integer [] a = {s, saltRange.get(1)};
                 //map.put(c, new ArrayList<Integer>(Arrays.asList(a[0], a[1])));
             }
-            else if(s >= saltRange.get(1)) {
+            if(s >= saltRange.get(1)) {
                 range[1] = s;
                // Integer [] a = {saltRange.get(0), s};
             }
             map.put(c, new ArrayList<Integer>(Arrays.asList(range[0], range[1])));
         }
-        //System.out.println(map);
         return map;
     }
 

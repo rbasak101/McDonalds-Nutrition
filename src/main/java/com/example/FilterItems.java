@@ -41,8 +41,8 @@ public class FilterItems {
         ArrayList<FoodItem> menuCalories = new ArrayList<FoodItem>();
         for(int i = 0; i < menu.size(); i++) {
             double p = Double.parseDouble(menu.get(i).getProtein());
-            double c = Double.parseDouble(menu.get(i).getCalories());
-            if(p >= c) {
+            double f = Double.parseDouble(menu.get(i).getFat());
+            if(p >= f) {
                 menuCalories.add(menu.get(i));
             }
         }

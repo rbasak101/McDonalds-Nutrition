@@ -61,7 +61,6 @@ public class FoodItem implements Comparable<FoodItem> {
 
     @Override
     public int compareTo(FoodItem other) {
-
         Double calorieDouble = Double.parseDouble(((FoodItem) other).getCalories());
         int compareCalorieInt = calorieDouble.intValue();
         //ascending order
@@ -70,7 +69,6 @@ public class FoodItem implements Comparable<FoodItem> {
 
         //descending order
         //return compareCalorieInt - current;
-
     }
 
 }

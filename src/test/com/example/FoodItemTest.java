@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class FoodItemTest {
     private Gson gson;
     private String filePath = "/Users/Rbasak101/desktop/McD.json";
+    private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
     @Before
     public void setUp() {
         // This is run before every test.
@@ -21,7 +22,10 @@ public class FoodItemTest {
 
     @Test
     public void createOneFoodItem() {
-        String json = "{\"CAL\":\"740\",\"FAT\":\"41\",\"SFAT\":\"16\",\"TFAT\":\"1.5\",\"CHOL\":\"125\",\"SALT\":\"1480\",\"CARB\":\"51\",\"FBR\":\"4\",\"SGR\":\"14\",\"PRO\":\"40\",\"ITEM\":\"Bacon Clubhouse Burger 9.7 oz (274 g)\",\"CATEGORY\":\"BURGERSANDWICH\"}";
+        String json = "{\"CAL\":\"740\",\"FAT\":\"41\",\"SFAT\":\"16\",\"TFAT\":\"1.5\"," +
+                "\"CHOL\":\"125\",\"SALT\":\"1480\",\"CARB\":\"51\",\"FBR\":\"4\",\"SGR\":" +
+                "\"14\",\"PRO\":\"40\",\"ITEM\":\"Bacon Clubhouse Burger 9.7 oz (274 g)\",\"CATEGORY\":" +
+                "\"BURGERSANDWICH\"}";
         FoodItem food = gson.fromJson(json, FoodItem.class);
         food.printNutrition();
         assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", food.getName());
@@ -33,6 +37,22 @@ public class FoodItemTest {
     }
 
     @Test
+    public void compareToTest() {
+        String json = "{\"CAL\":\"740\",\"FAT\":\"41\",\"SFAT\":\"16\",\"TFAT\":\"1.5\"," +
+                "\"CHOL\":\"125\",\"SALT\":\"1480\",\"CARB\":\"51\",\"FBR\":\"4\",\"SGR\":" +
+                "\"14\",\"PRO\":\"40\",\"ITEM\":\"Bacon Clubhouse Burger 9.7 oz (274 g)\",\"CATEGORY\":" +
+                "\"BURGERSANDWICH\"}";
+        FoodItem food1 = gson.fromJson(json, FoodItem.class);
+        String json2 = "{\"CAL\":\"340\",\"FAT\":\"11\",\"SFAT\":\"7\",\"TFAT\":\"0\"," +
+                "\"CHOL\":\"35\",\"SALT\":\"150\",\"CARB\":\"49\",\"FBR\":\"2\",\"SGR\":" +
+                "\"42\",\"PRO\":\"10\",\"ITEM\":\"McCafe Mocha (Small) 12 fl oz cup\",\"CATEGORY\":" +
+                "\"MCCAFE\"}";
+        FoodItem food2 = gson.fromJson(json2, FoodItem.class);
+        assertEquals(400,food1.compareTo(food2));
+
+    }
+
+    @Test
     public void readJsonToFoodItem() {
         try
         {
@@ -41,15 +61,19 @@ public class FoodItemTest {
 
             //Read the employee.json file
             BufferedReader br = new BufferedReader(
-                    new FileReader(filePath));
+                    new FileReader(filePathTest));
 
             //convert the json to  Java object (FoodItem)
             FoodItem[] food = gson.fromJson(br, FoodItem[].class);
             for(int i = 0; i < food.length; i++) {
                 food[i].printNutrition();
             }
-            // Check to see if objects are equal as well
-            assertEquals(471, food.length); // number of objects
+
+            assertEquals(18, food.length); // number of objects
+            String firstItemName = food[0].getName();
+            String lastItemName = food[food.length-1].getName();
+            assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", firstItemName);
+            assertEquals("Sausage Burrito 3.9 oz (111 g)", lastItemName);
         }
         catch (IOException e) {
             e.printStackTrace();
