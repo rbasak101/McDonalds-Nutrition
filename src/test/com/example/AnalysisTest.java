@@ -3,6 +3,7 @@ package test.com.example;
 import com.example.Analysis;
 import com.example.FilterItems;
 import com.example.FoodItem;
+import com.example.ReadData;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,17 +25,9 @@ public class AnalysisTest {
 
     @Before
     public void initialize() {
-        try
-        {
-            Gson gson = new Gson();
-            BufferedReader br = new BufferedReader(new FileReader(filePathTest));
-
-            FoodItem[] menu = gson.fromJson(br, FoodItem[].class);
-            foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        ReadData deserialize = new ReadData();
+        FoodItem[] menu = deserialize.readFile(filePathTest);
+        foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
     }
 
     @Test

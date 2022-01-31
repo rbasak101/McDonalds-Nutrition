@@ -19,17 +19,9 @@ public class Main {
         ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
         String filePath = "/Users/Rbasak101/desktop/McD.json";
 
-        try // Reading from file
-        {
-            Gson gson = new Gson();
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
-
-            FoodItem[] menu = gson.fromJson(br, FoodItem[].class);
-            foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        ReadData deserialize = new ReadData();
+        FoodItem[] menu = deserialize.readFile(filePath);
+        foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
 
         FilterItems filter = new FilterItems();
         ArrayList<FoodItem> foodCalorieRange = filter.getFoodFromCalories(foodList, 500, 1000);

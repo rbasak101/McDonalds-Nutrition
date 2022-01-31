@@ -17,17 +17,10 @@ public class PieChartMenu implements ExampleChart<PieChart> {
     public static void main(String[] args) {
         ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
         String filePath = "/Users/Rbasak101/desktop/McD.json";
-        try
-        {
-            Gson gson = new Gson();
-            BufferedReader br = new BufferedReader(new FileReader(filePath));
 
-            FoodItem[] menu = gson.fromJson(br, FoodItem[].class);
-            foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        ReadData deserialize = new ReadData();
+        FoodItem[] menu = deserialize.readFile(filePath);
+        foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
 
         Analysis analyze = new Analysis();
         HashMap<String, Integer> freqMap = analyze.getCategoryCount(foodList);

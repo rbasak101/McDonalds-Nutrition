@@ -1,5 +1,6 @@
 package test.com.example;
 import com.example.FoodItem;
+import com.example.ReadData;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,30 +55,17 @@ public class FoodItemTest {
 
     @Test
     public void readJsonToFoodItem() {
-        try
-        {
-            //Create a new Gson object
-            Gson gson = new Gson();
+        ReadData deserialize = new ReadData();
+        FoodItem[] food = deserialize.readFile(filePathTest);
+        for(int i = 0; i < food.length; i++) {
+            food[i].printNutrition();
 
-            //Read the employee.json file
-            BufferedReader br = new BufferedReader(
-                    new FileReader(filePathTest));
-
-            //convert the json to  Java object (FoodItem)
-            FoodItem[] food = gson.fromJson(br, FoodItem[].class);
-            for(int i = 0; i < food.length; i++) {
-               // System.out.println(food[i].getCalories().getClass().getSimpleName());
-                food[i].printNutrition();
-
-            }
-            assertEquals(18, food.length); // number of objects
-            String firstItemName = food[0].getName();
-            String lastItemName = food[food.length-1].getName();
-            assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", firstItemName);
-            assertEquals("Sausage Burrito 3.9 oz (111 g)", lastItemName);
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        assertEquals(18, food.length); // number of objects
+        String firstItemName = food[0].getName();
+        String lastItemName = food[food.length-1].getName();
+        assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", firstItemName);
+        assertEquals("Sausage Burrito 3.9 oz (111 g)", lastItemName);
+
     }
 }
