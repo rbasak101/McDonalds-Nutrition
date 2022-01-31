@@ -40,7 +40,6 @@ public class Analysis {
             Double value = entry.getValue();
             category.put(key, (value / total) * 100);
         }
-       // System.out.println(total);
         return category;
     }
 
@@ -53,7 +52,6 @@ public class Analysis {
             sum += c;
         }
         double average = sum / total;
-        System.out.println(average);
         return average;
     }
 
@@ -79,12 +77,9 @@ public class Analysis {
 
             if(s <= saltRange.get(0)) {
                 range[0] = s;
-                //Integer [] a = {s, saltRange.get(1)};
-                //map.put(c, new ArrayList<Integer>(Arrays.asList(a[0], a[1])));
             }
             if(s >= saltRange.get(1)) {
                 range[1] = s;
-               // Integer [] a = {saltRange.get(0), s};
             }
             map.put(c, new ArrayList<Integer>(Arrays.asList(range[0], range[1])));
         }
