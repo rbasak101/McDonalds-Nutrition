@@ -43,8 +43,7 @@ public class Analysis {
         double sum = 0;
         double total = menu.size();
         for(int i = 0; i < menu.size(); i++) {
-            String cal = menu.get(i).getCalories();
-            double c = Double.parseDouble(cal);
+            double c = menu.get(i).getCalories();
             sum += c;
         }
         double average = sum / total;
@@ -67,7 +66,7 @@ public class Analysis {
 
         for(int i = 0; i < menu.size(); i++) {  // Find min and max salt range for each category
             String c = menu.get(i).getCategory();
-            Integer s = Integer.valueOf(menu.get(i).getSalt());
+            Integer s = Integer.valueOf((int)menu.get(i).getSalt());
             List<Integer> saltRange = map.get(c);
             Integer [] range = {saltRange.get(0), saltRange.get(1)};
 

@@ -5,9 +5,7 @@ import com.example.ReadData;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 

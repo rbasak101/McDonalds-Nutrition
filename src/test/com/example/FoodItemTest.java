@@ -4,9 +4,6 @@ import com.example.ReadData;
 import com.google.gson.Gson;
 import org.junit.Before;
 import org.junit.Test;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,11 +27,11 @@ public class FoodItemTest {
         FoodItem food = gson.fromJson(json, FoodItem.class);
         food.printNutrition();
         assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", food.getName());
-        assertEquals("740", food.getCalories());
-        assertEquals("41", food.getFat());
-        assertEquals("40", food.getProtein());
-        assertEquals("14", food.getSugar());
-        assertEquals("1480", food.getSalt());
+        assertEquals(740.0, food.getCalories(), .00);
+        assertEquals(41.0, food.getFat(), .00);
+        assertEquals(40.0, food.getProtein(), .00);
+        assertEquals(14, food.getSugar(), .00);
+        assertEquals(1480, food.getSalt(), .00);
     }
 
     @Test
@@ -49,7 +46,7 @@ public class FoodItemTest {
                 "\"42\",\"PRO\":\"10\",\"ITEM\":\"McCafe Mocha (Small) 12 fl oz cup\",\"CATEGORY\":" +
                 "\"MCCAFE\"}";
         FoodItem food2 = gson.fromJson(json2, FoodItem.class);
-        //assertEquals(400,food1.compareTo(food2));
+        assertEquals(400,food1.compareTo(food2));
 
     }
 

@@ -1,38 +1,37 @@
 package com.example;
-import com.google.gson.Gson;
 import java.io.*;
 
 public class FoodItem implements Comparable<FoodItem>{
-    private String CAL; //
-    private String FAT; //
-    private String SFAT;
-    private String TFAT;
-    private String CHOL;
-    private String SALT; //
-    private String CARB;
-    private String FBR;
-    private String SGR; //
-    private String PRO; //
+    private double CAL; //
+    private double FAT; //
+    private double SFAT;
+    private double TFAT;
+    private double CHOL;
+    private double SALT; //
+    private double CARB;
+    private double FBR;
+    private double SGR; //
+    private double PRO; //
     private String ITEM; //
     private String CATEGORY; //
 
-    public String getCalories() {
+    public double getCalories() {
         return this.CAL;
     }
 
-    public String getFat() {
+    public double getFat() {
         return this.FAT;
     }
 
-    public String getSalt() {
+    public double getSalt() {
         return SALT;
     }
 
-    public String getSugar() {
+    public double getSugar() {
         return SGR;
     }
 
-    public String getProtein() {
+    public double getProtein() {
         return PRO;
     }
 
@@ -57,13 +56,13 @@ public class FoodItem implements Comparable<FoodItem>{
 
     @Override
     public int compareTo(FoodItem other) {
-        Double calorieDouble = Double.parseDouble(((FoodItem) other).getCalories());
-        int compareCalorieInt = calorieDouble.intValue();
+        int calorieOther = (int) other.getCalories();
+        int current = (int)(this.CAL);
         //ascending order
-        int current = Integer.parseInt(this.CAL);
-        return current - compareCalorieInt;
+        return current - calorieOther;
+
         //descending order
-        //return compareCalorieInt - current;
+        //return calorieOther - current
     }
 
 }
