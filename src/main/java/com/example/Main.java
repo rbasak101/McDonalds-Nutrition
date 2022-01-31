@@ -1,8 +1,5 @@
 package com.example;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +19,7 @@ public class Main {
         ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
         String filePath = "/Users/Rbasak101/desktop/McD.json";
 
-        try
+        try // Reading from file
         {
             Gson gson = new Gson();
             BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -33,9 +30,10 @@ public class Main {
         catch (IOException e) {
             e.printStackTrace();
         }
+
         FilterItems filter = new FilterItems();
         ArrayList<FoodItem> foodCalorieRange = filter.getFoodFromCalories(foodList, 500, 1000);
-        System.out.println("Filtering calories by min and max");
+        System.out.println("Filtering calories by min and max:");
         for (FoodItem i : foodCalorieRange)
         {
             i.printNutrition();

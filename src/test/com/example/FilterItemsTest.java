@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class FilterItemsTest {
     private String filePath = "/Users/Rbasak101/desktop/McD.json";
     private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
-    public ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
+    private ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
 
     @Before
     public void initialize() {
@@ -26,9 +26,6 @@ public class FilterItemsTest {
 
             FoodItem[] menu = gson.fromJson(br, FoodItem[].class);
             foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
-//            for(int i = 0; i < foodList.size(); i++) {
-//                foodList.get(i).printNutrition();
-//            }
         }
         catch (IOException e) {
             e.printStackTrace();

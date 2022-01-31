@@ -2,7 +2,6 @@ package com.example;
 import java.util.ArrayList;
 
 public class FilterItems {
-    //public ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
 
     public ArrayList<FoodItem> getFoodFromCalories(ArrayList<FoodItem> menu, double low, double high) {
         ArrayList<FoodItem> menuCalories = new ArrayList<FoodItem>();

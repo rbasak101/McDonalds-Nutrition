@@ -14,9 +14,9 @@ public class FoodItemTest {
     private Gson gson;
     private String filePath = "/Users/Rbasak101/desktop/McD.json";
     private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
+
     @Before
     public void setUp() {
-        // This is run before every test.
         gson = new Gson();
     }
 
@@ -48,7 +48,7 @@ public class FoodItemTest {
                 "\"42\",\"PRO\":\"10\",\"ITEM\":\"McCafe Mocha (Small) 12 fl oz cup\",\"CATEGORY\":" +
                 "\"MCCAFE\"}";
         FoodItem food2 = gson.fromJson(json2, FoodItem.class);
-        assertEquals(400,food1.compareTo(food2));
+        //assertEquals(400,food1.compareTo(food2));
 
     }
 
@@ -66,9 +66,10 @@ public class FoodItemTest {
             //convert the json to  Java object (FoodItem)
             FoodItem[] food = gson.fromJson(br, FoodItem[].class);
             for(int i = 0; i < food.length; i++) {
+               // System.out.println(food[i].getCalories().getClass().getSimpleName());
                 food[i].printNutrition();
-            }
 
+            }
             assertEquals(18, food.length); // number of objects
             String firstItemName = food[0].getName();
             String lastItemName = food[food.length-1].getName();
@@ -78,6 +79,5 @@ public class FoodItemTest {
         catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

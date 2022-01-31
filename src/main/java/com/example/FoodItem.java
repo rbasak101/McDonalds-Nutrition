@@ -2,7 +2,7 @@ package com.example;
 import com.google.gson.Gson;
 import java.io.*;
 
-public class FoodItem implements Comparable<FoodItem> {
+public class FoodItem implements Comparable<FoodItem>{
     private String CAL; //
     private String FAT; //
     private String SFAT;
@@ -15,10 +15,6 @@ public class FoodItem implements Comparable<FoodItem> {
     private String PRO; //
     private String ITEM; //
     private String CATEGORY; //
-
-    public FoodItem() {
-
-    }
 
     public String getCalories() {
         return this.CAL;
@@ -66,7 +62,6 @@ public class FoodItem implements Comparable<FoodItem> {
         //ascending order
         int current = Integer.parseInt(this.CAL);
         return current - compareCalorieInt;
-
         //descending order
         //return compareCalorieInt - current;
     }

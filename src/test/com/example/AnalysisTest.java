@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 public class AnalysisTest {
     private String filePath = "/Users/Rbasak101/desktop/McD.json";
     private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
-    public ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
+    private ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
 
     @Before
     public void initialize() {
