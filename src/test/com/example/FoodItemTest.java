@@ -10,8 +10,6 @@ import static org.junit.Assert.assertEquals;
 //It may be a good idea to rename/refactor depending on the focus of your assignment.
 public class FoodItemTest {
     private Gson gson;
-    private String filePath = "/Users/Rbasak101/desktop/McD.json";
-    private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
 
     @Before
     public void setUp() {
@@ -47,22 +45,5 @@ public class FoodItemTest {
                 "\"MCCAFE\"}";
         FoodItem food2 = gson.fromJson(json2, FoodItem.class);
         assertEquals(400,food1.compareTo(food2));
-
-    }
-
-    @Test
-    public void readJsonToFoodItem() {
-        ReadData deserialize = new ReadData();
-        FoodItem[] food = deserialize.readFile(filePathTest);
-        for(int i = 0; i < food.length; i++) {
-            food[i].printNutrition();
-
-        }
-        assertEquals(18, food.length); // number of objects
-        String firstItemName = food[0].getName();
-        String lastItemName = food[food.length-1].getName();
-        assertEquals("Bacon Clubhouse Burger 9.7 oz (274 g)", firstItemName);
-        assertEquals("Sausage Burrito 3.9 oz (111 g)", lastItemName);
-
     }
 }

@@ -14,7 +14,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class AnalysisTest {
-    private String filePath = "/Users/Rbasak101/desktop/McD.json";
     private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
     private ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
 
@@ -28,10 +27,10 @@ public class AnalysisTest {
     @Test
     public void categoryPercentageTest() {
         Analysis analyze = new Analysis();
-        HashMap<String, Integer> freqMap = analyze.getCategoryCount(foodList);
+        HashMap<String, Double> freqMap = analyze.getCategoryCount(foodList);
         System.out.println(freqMap);
         int total = 0;
-        for (Integer iterator: freqMap.values()) {
+        for (Double iterator: freqMap.values()) {
             total += iterator.intValue();
         }
         assertEquals(18, total);
@@ -112,5 +111,4 @@ public class AnalysisTest {
         assertEquals(1250, range.get("CHICKENFISH").get(1).intValue());
 
     }
-
 }

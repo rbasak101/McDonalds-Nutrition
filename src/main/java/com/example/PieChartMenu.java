@@ -20,7 +20,7 @@ public class PieChartMenu implements ExampleChart<PieChart> {
         foodList = new ArrayList<FoodItem>(Arrays.asList(menu));
 
         Analysis analyze = new Analysis();
-        HashMap<String, Integer> freqMap = analyze.getCategoryCount(foodList);
+        HashMap<String, Double> freqMap = analyze.getCategoryCount(foodList);
 
         //ExampleChart<PieChart> exampleChart = new PieChartMenu();
         PieChartMenu exampleChart = new PieChartMenu();
@@ -62,7 +62,7 @@ public class PieChartMenu implements ExampleChart<PieChart> {
         return chart;
     }
 
-    public PieChart getChartAuto(HashMap<String, Integer> freqMap) {
+    public PieChart getChartAuto(HashMap<String, Double> freqMap) {
         // Create Chart
         PieChart chart = new PieChartBuilder().width(800).height(600).title(getClass().getSimpleName()).build();
 
@@ -80,7 +80,7 @@ public class PieChartMenu implements ExampleChart<PieChart> {
                         new Color(0, 0, 0),};
         chart.getStyler().setSeriesColors(sliceColors);
 
-        for (HashMap.Entry<String, Integer> set :freqMap.entrySet()) {
+        for (HashMap.Entry<String, Double> set :freqMap.entrySet()) {
             chart.addSeries(set.getKey(), set.getValue().intValue());
         }
         return chart;

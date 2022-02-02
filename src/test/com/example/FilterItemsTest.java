@@ -12,7 +12,6 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class FilterItemsTest {
-    private String filePath = "/Users/Rbasak101/desktop/McD.json";
     private String filePathTest = "/Users/Rbasak101/desktop/McDTest.json";
     private ArrayList<FoodItem> foodList = new ArrayList<FoodItem>();
 
@@ -76,5 +75,4 @@ public class FilterItemsTest {
         assertEquals("Premium Bacon Ranch Salad (without chicken) 5.9 oz (169 g)", filtered.get(4).getName());
         assertEquals("Premium Bacon Ranch Salad with Grilled Chicken 9.4 oz (266 g)", filtered.get(5).getName());
     }
-
 }

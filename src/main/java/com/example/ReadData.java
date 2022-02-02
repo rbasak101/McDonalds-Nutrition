@@ -21,7 +21,6 @@ public class ReadData {
             //convert the json to  Java object (FoodItem)
             FoodItem[] food = gson.fromJson(br, FoodItem[].class);
             for(int i = 0; i < food.length; i++) {
-                // System.out.println(food[i].getCalories().getClass().getSimpleName());
                 food[i].printNutrition();
 
             }

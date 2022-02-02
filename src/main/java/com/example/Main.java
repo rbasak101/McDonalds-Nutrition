@@ -32,7 +32,7 @@ public class Main {
         System.out.println("Printing sodium range of each category");
         System.out.println(range);
         System.out.println(" ");
-        HashMap<String, Integer> freqMap = analyze.getCategoryCount(foodList);
+        HashMap<String, Double> freqMap = analyze.getCategoryCount(foodList);
 
         PieChartMenu pieChart = new PieChartMenu();
         PieChart chart = pieChart.getChartAuto(freqMap);

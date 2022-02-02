@@ -2,18 +2,13 @@ package com.example;
 import java.io.*;
 
 public class FoodItem implements Comparable<FoodItem>{
-    private double CAL; //
-    private double FAT; //
-    private double SFAT;
-    private double TFAT;
-    private double CHOL;
-    private double SALT; //
-    private double CARB;
-    private double FBR;
-    private double SGR; //
-    private double PRO; //
-    private String ITEM; //
-    private String CATEGORY; //
+    private double CAL;
+    private double FAT;
+    private double SALT;
+    private double SGR;
+    private double PRO;
+    private String ITEM;
+    private String CATEGORY;
 
     public double getCalories() {
         return this.CAL;
@@ -58,11 +53,8 @@ public class FoodItem implements Comparable<FoodItem>{
     public int compareTo(FoodItem other) {
         int calorieOther = (int) other.getCalories();
         int current = (int)(this.CAL);
-        //ascending order
-        return current - calorieOther;
-
-        //descending order
-        //return calorieOther - current
+        return current - calorieOther; //ascending order
+        //return calorieOther - current; //descending order
     }
 
 }
